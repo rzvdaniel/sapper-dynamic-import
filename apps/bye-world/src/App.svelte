@@ -1,5 +1,6 @@
 <script>
-	export let name;
+	export let env;
+	const bundleCss = env === 'dev' ? 'bundle.css' : 'bye-world/bundle.css'
 </script>
 
 <style>
@@ -8,4 +9,8 @@
 	}
 </style>
 
-<h1>Bye {name}!</h1>
+<svelte:head>
+	<link rel="stylesheet" href="{bundleCss}">
+</svelte:head>
+
+<h1>Bye World!</h1>

@@ -3,16 +3,17 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
+import copy from 'rollup-plugin-cpy'
 
 const production = !process.env.ROLLUP_WATCH;
 
 export default {
-	input: 'src/main.js',
+	input: production ? 'src/App.svelte' : 'src/main.js',
 	output: {
 		sourcemap: true,
-		format: 'iife',
+		format: production ? 'esm' : 'iife',
 		name: 'app',
-		file: 'public/bundle.js'
+		file: production ? 'public/bundle.mjs' : 'public/bundle.js'
 	},
 	plugins: [
 		svelte({
@@ -39,6 +40,14 @@ export default {
 
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
-		production && terser()
+		production && terser(),
+
+		copy({
+			files: ['public/*.mjs', 'public/*.mjs.map', 'public/bundle.css', 'public/*.css.map'],
+			dest: '../../static-apps/bye-world',
+			options: {
+			  verbose: true
+			}
+		  })
 	]
 };

@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "..\\src\\App.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\r\n\texport let env;\r\n\tconst bundleCss = env === 'dev' ? 'bundle.css' : 'bye-world/bundle.css'\r\n</script>\r\n\r\n<style>\r\n\th1 {\r\n\t\tcolor: purple;\r\n\t}\r\n</style>\r\n\r\n\r\n<svelte:head>\r\n\t<link rel=\"stylesheet\" href=\"{bundleCss}\">\r\n</svelte:head>\r\n\r\n<h1>Bye World!</h1>\r\n"
+  ],
+  "names": [],
+  "mappings": "AAMC,EAAE,cAAC,CAAC,AACH,KAAK,CAAE,MAAM,AACd,CAAC"
+}
