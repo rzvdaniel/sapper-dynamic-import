@@ -9,6 +9,7 @@ polka()
 	.use(
 		sirv('static', { dev }),
 		sirv('static-dist', { dev }),
+		sirv('static-apps', { dev }),
 		sapper.middleware(),
 	)
 	.listen(PORT, err => {
