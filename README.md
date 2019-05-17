@@ -25,13 +25,11 @@ npm install # or yarn!
 npm run dev
 ```
 
-Open up [localhost:3000](http://localhost:3000) and notice the two links in the Home page:
-- Hello Svelte
-- Hello World
+Open up [localhost:3000](http://localhost:3000) and navigate Apps route in the Home page. From there, you have access to the two links that asynchronously load the two sample apps:
 
 Each of the two links would direct you to the same page ([app].svelte) using two different route options:
-- /app/hellosvelte
-- /app/helloworld
+- /app/bye-world
+- /app/hello-world
 
 Once the [app].svelte page is touched, the Svelte app corresponding to the route being accessed should be dynamically loaded at runtime.
 
