@@ -3,7 +3,7 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
-import copy from 'rollup-plugin-copy'
+import copy from 'rollup-plugin-cpy'
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -42,11 +42,12 @@ export default {
 		// instead of npm run dev), minify
 		production && terser(),
 
-		// https://github.com/vladshcherbin/rollup-plugin-copy
 		copy({
-			targets: ['public'],
-			outputFolder: '../../static-apps/hello-world',
-			verbose: true
-		})
+			files: ['public/*.mjs', 'public/*.mjs.map', 'public/bundle.css', 'public/*.css.map'],
+			dest: '../../static-apps/hello-world',
+			options: {
+			  verbose: true
+			}
+		  })
 	]
 };

@@ -6,6 +6,4 @@
 
 <ul>
 	<li><a href="/apps">Apps</a>
-	<li><a href="/apps2">Apps2</a>
-	<li><a href="/apps-ssr">Server-side rendered apps</a>
 </ul>

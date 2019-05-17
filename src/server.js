@@ -8,7 +8,6 @@ const dev = NODE_ENV === 'development'
 polka()
 	.use(
 		sirv('static', { dev }),
-		sirv('static-dist', { dev }),
 		sirv('static-apps', { dev }),
 		sapper.middleware(),
 	)

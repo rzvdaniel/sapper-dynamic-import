@@ -9,8 +9,8 @@
 
 	let loading_component = new Promise(() => {})
 	$: if (process.browser) {
-		console.log(`loading app bundle '${app}.mjs'`)
-		loading_component = import(`/bundles/${app}.mjs`)
+		console.log(`loading app bundle '/${app}/bundle.mjs'`)
+		loading_component = import(`/${app}/bundle.mjs`)
 	}
 	
 	// onMount is only called when this route is initialized
