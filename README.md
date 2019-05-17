@@ -1,8 +1,38 @@
-# Svelte apps async loading
-Created with CodeSandbox
+# Sapper dynamic Svelte apps loading
 
-This demo was originally created by Maurício Kishi (https://github.com/mrkishi) as an aswer to a question asked at https://github.com/sveltejs/svelte/issues/2760. Sandbox demo at https://codesandbox.io/s/3ulgy.
+This is an example of dynamically loading Svelte that are previously built in a separate step.
 
-It explains very nice how Svelte apps are being loaded both via preload (so it works both client-side and during server-side rendering) and  at runtime.
+## 1. Original Sample
+
+This demo was originally created by Maurício Kishi (https://github.com/mrkishi) as an aswer to a question asked at https://github.com/sveltejs/svelte/issues/2760. His Sandbox demo can be found at https://codesandbox.io/s/3ulgy.
+
+## 2. Svelte Template
+
+The aim is to asynchronously load compiled Svelte applications without any prior knowledge. The applications are not be part of the Sapper project itself, but they're loaded from an external path instead. For this, we have copied the compiled Svelte apps - called "Hello Svelte" and "Hello World" - to the [Apps] folder in this repository. 
+
+If you wish to create your own app (that can later be loaded in any kind of Svelte application), you can find more details here at [https://github.com/sveltejs/template].
+
+## 3. Sapper Template
+
+This repository is an updated version of the original [Sapper](https://github.com/sveltejs/sapper) template. The idea is to dynamically load Svelte applications when navigating to a so called "Application Host" (that't just another page in the Sapper project).
+
+To clone it and get started:
+
+```bash
+git clone https://github.com/rzvdaniel/sapper-dynamic-import.git
+cd sapper-dynamic-import
+npm install # or yarn!
+npm run dev
+```
+
+Open up [localhost:3000](http://localhost:3000) and notice the two links in the Home page:
+- Hello Svelte
+- Hello World
+
+Each of the two links would direct you to the same page ([app].svelte) using two different route options:
+- /app/hellosvelte
+- /app/helloworld
+
+Once the [app].svelte page is touched, the Svelte app corresponding to the route being accessed should be dynamically loaded at runtime.
 
 Best!
