@@ -1,6 +1,12 @@
+<script context="module">
+	export async function preload({ params: { app } }) {
+		console.log(`loading app bundle '${app}.js'`)
+		return { app };
+	}
+</script>
+
 <script>
-	export let env;
-	const bundleCss = env === 'dev' ? 'bundle.css' : 'bye-world/bundle.css'
+	export let root;
 </script>
 
 <style>
@@ -10,7 +16,7 @@
 </style>
 
 <svelte:head>
-	<link rel="stylesheet" href="{bundleCss}">
+	<link rel="stylesheet" href="{root}/bundle.css">
 </svelte:head>
 
 <h1>Bye World!</h1>

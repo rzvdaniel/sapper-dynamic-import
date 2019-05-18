@@ -25,7 +25,7 @@
 {#await loading_component}
 	<strong>Loading...</strong>
 {:then module}
-	<svelte:component this="{module.default}"/>
+	<svelte:component this="{module.default}" root={app}/>
 {:catch err}
 	<strong>Ops! Something went wrong: {err}</strong>
 {/await}

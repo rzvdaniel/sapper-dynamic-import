@@ -8,9 +8,15 @@ This demo was originally created by Maurício Kishi (https://github.com/mrkishi)
 
 ## 2. Svelte Template
 
-The aim is to asynchronously load compiled Svelte applications without any prior knowledge. The applications are not be part of the Sapper project itself, but they're loaded from an external path instead. For this, we have copied the compiled Svelte apps - called "Hello Svelte" and "Hello World" - to the [Apps] folder in this repository. 
+The aim is to asynchronously load compiled Svelte applications without any prior knowledge. The applications are not be part of the compile Sapper project, but they're loaded from an external path instead. 
 
-If you wish to create your own app (that can later be loaded in any kind of Svelte application), you can find more details here at [https://github.com/sveltejs/template].
+The nice thing here is that the two Svelte applications are created separatelly in the "apps" folder. You can develope them independently and test with with "npm run dev". After compilation (npm run build) the bundled app files are copied to the "static-apps" folder from where they are dynamically loaded at runtime by the Sapper website.
+
+If you wish to create your own app, you can find more details here at [https://github.com/sveltejs/template].
+
+There are two additional configuration needed right now for the apps to correclt load the corresponding CSS bundles.
+
+1. Instruct the app
 
 ## 3. Sapper Template
 
@@ -25,12 +31,12 @@ npm install # or yarn!
 npm run dev
 ```
 
-Open up [localhost:3000](http://localhost:3000) and navigate Apps route in the Home page. From there, you have access to the two links that asynchronously load the two sample apps:
+Open up [localhost:3000](http://localhost:3000) and navigate Apps route in the Home page. From there, you have access to the two links that asynchronously load the two Svelte sample apps:
 
 Each of the two links would direct you to the same page ([app].svelte) using two different route options:
 - /app/bye-world
 - /app/hello-world
 
-Once the [app].svelte page is touched, the Svelte app corresponding to the route being accessed should be dynamically loaded at runtime.
+Once the [app].svelte page is accessed by the route nevigation, the corresponding Svelte app is dynamically loaded at runtime.
 
 Best!

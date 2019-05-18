@@ -6,14 +6,16 @@ import { terser } from 'rollup-plugin-terser';
 import copy from 'rollup-plugin-cpy'
 
 const production = !process.env.ROLLUP_WATCH;
+const inputFile = production ? 'src/App.svelte' : 'src/main.js';
+const outputFile = production ? 'public/bundle.mjs' : 'public/bundle.js';
 
 export default {
-	input: production ? 'src/App.svelte' : 'src/main.js',
+	input: inputFile,
 	output: {
 		sourcemap: true,
 		format: production ? 'esm' : 'iife',
 		name: 'app',
-		file: production ? 'public/bundle.mjs' : 'public/bundle.js'
+		file: outputFile
 	},
 	plugins: [
 		svelte({
